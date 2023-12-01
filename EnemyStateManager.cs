@@ -8,6 +8,7 @@ public class EnemyStateManager : MonoBehaviour
     public SpawnState spawnState = new SpawnState();
     public MoveState moveState = new MoveState();
     public DestroyState destroyState = new DestroyState();
+    public EnterBaseState enterBaseState = new EnterBaseState();
     [SerializeField] public float EnemySpeed = 5f;
 
     private void Start()
@@ -20,6 +21,13 @@ public class EnemyStateManager : MonoBehaviour
         currentState.UpdateState(this);
      
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        currentState.HitState(this, other);
+    }
+
+
 
     public void ChangeState(EnemyBaseState newState)
     {

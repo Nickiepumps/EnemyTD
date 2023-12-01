@@ -24,14 +24,18 @@ public class MoveState : EnemyBaseState
 
         if (waypointIndex >= Waypoint.Waypoints.Length - 1)
         {
-            enemy.ChangeState(enemy.destroyState);
+            enemy.ChangeState(enemy.enterBaseState);
             
         }
 
     }
-    public override void ExitState(EnemyStateManager enemy)
+    public override void HitState(EnemyStateManager enemy, Collider other)
     {
-
+        GameObject arrow = other.gameObject;
+        if (arrow.CompareTag("Arrow"))
+        {
+            enemy.ChangeState(enemy.destroyState);
+        }
     }
     public void GetNextWaypoint()
     {       

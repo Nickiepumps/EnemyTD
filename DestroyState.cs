@@ -7,15 +7,15 @@ public class DestroyState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     { 
         Debug.Log("This is EnterState from DestroyState");
-        
+        enemy.DestroyEnemy();
     }
     public override void UpdateState(EnemyStateManager enemy)
     {
-        enemy.DestroyEnemy();
+        
     }
-    public override void ExitState(EnemyStateManager enemy)
+    public override void HitState(EnemyStateManager enemy, Collider other)
     {
-
+        
+        
     }
-
 }
