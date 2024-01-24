@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class EnterBaseState : EnemyBaseState
 {
-    public override void EnterState(EnemyStateManager enemy)
+    public EnterBaseState(EnemyStateManager enemy) : base(enemy) { }
+    public override void EnterState()
     {
         Debug.Log("This is EnterState from EnterBaseState");
-        BaseHP.baseHp--;
-        Debug.Log("Base Hp" + BaseHP.baseHp.ToString());
-        enemy.DestroyEnemy();
+        enemy.EnterBase();
     }
-    public override void UpdateState(EnemyStateManager enemy)
+    public override void UpdateState()
     {
 
     }
-    public override void HitState(EnemyStateManager enemy, Collider other)
+    public override void HitState(Collider other)
     {
 
 
     }
+
 }
